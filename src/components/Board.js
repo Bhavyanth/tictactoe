@@ -1,26 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Square from './Square';
 
-const Board= () =>{
-    const [board, setBoard] = useState(Array(9).fill(null)); // will return the state and the updated state (value)
-    const [isXNext, setIsXNext] = useState(false); // after player's turn
-    const handleClick = position =>{ 
-        //adding not to override existing value
-        if (board[position]) {
-            return;
-        }
-        //prev is the callback function of the previous state
-            setBoard(prev=> {
-                return prev.map((square, pos) => {
-                    if(pos === position){
-                        return isXNext ? 'X' : '0';
-                    }
-                        return square;
-                });
-            });
-            setIsXNext( (prev)=> !prev ); //changing player's turn
-    };
-
+const Board= ( {board, handleClick}) =>{
     const renderSquare = (position) =>{
         return (
             <Square 
