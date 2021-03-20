@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import './styles/root.scss'; // Declaring globally
 import Board from './components/Board';
 
 const App = () => {
   return (
-    <div>
+    <div className="app">
       <h1>TIC TAC TOE</h1>
       <Board />
     </div>
